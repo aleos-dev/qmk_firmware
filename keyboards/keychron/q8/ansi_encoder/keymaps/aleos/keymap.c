@@ -26,6 +26,17 @@ enum layers{
     _FN3
 };
 
+// const uint16_t PROGMEM test_combo1[] = {KC_LWIN, KC_H, COMBO_END};
+// const uint16_t PROGMEM test_combo2[] = {KC_LWIN, KC_J, COMBO_END};
+// const uint16_t PROGMEM test_combo3[] = {KC_LWIN, KC_K, COMBO_END};
+// const uint16_t PROGMEM test_combo4[] = {KC_LWIN, KC_L, COMBO_END};
+// combo_t key_combos[] = {
+//     COMBO(test_combo1, KC_LEFT),
+//     COMBO(test_combo2, KC_DOWN), // keycodes with modifiers are possible too!
+// 	COMBO(test_combo3, KC_UP),
+// 	COMBO(test_combo4, KC_RIGHT),
+// };
+
 
 // ===  ===   ===
 // QK_CAPS_WORD_TOGGLE (CW_TOGG)
@@ -34,6 +45,8 @@ enum layers{
 //Replace the Left Shift key with SC_LSPO (Left Shift, Parenthesis Open), and Right Shift with SC_RSPC (Right Shift, Parenthesis Close).
 // rules.mk add COMMAND_ENABLE = no
 // ===  ===   ===
+
+#define CAPS_V2 RCTL_T(KC_ESC)
 
 #define KC_TASK LGUI(KC_TAB)
 #define KC_FLXP LGUI(KC_E)
@@ -50,21 +63,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [WIN_BASE] = LAYOUT_ansi_69(
         QK_GESC,  KC_1,     KC_2,     KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,    KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,          KC_MUTE,
         KC_TAB,  KC_Q,     KC_W,     KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,     KC_LBRC,  KC_RBRC,  KC_BSLS,          KC_DEL,
-        RCTL_T(KC_ESC), KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,           KC_HOME,
+        CAPS_V2, KC_A,     KC_S,     KC_D,    KC_F,    KC_G,              KC_H,     KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,  KC_ENT,                        KC_HOME,
         SC_LSPO,           KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,     KC_B,    KC_N,    KC_M,    KC_COMM,  KC_DOT,   KC_SLSH,  SC_RSPC, KC_UP,
         KC_LCTL, KC_LWIN,  KC_LALT,           KC_SPC,           MO(_FN2), MO(_FN3),         KC_SPC,            KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
 
     [_FN1] = LAYOUT_ansi_69(
         KC_GRV,  KC_BRID,  KC_BRIU,  KC_NO,   KC_NO,   RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          RGB_TOG,
         RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
+        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,  _______,  _______,  _______,          _______,
         _______,           _______,  _______, _______, _______, _______,  _______, NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
         _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______),
 
     [_FN2] = LAYOUT_ansi_69(
         KC_GRV,  KC_BRID,  KC_BRIU,  KC_TASK, KC_FLXP, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          RGB_TOG,
         RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        CW_TOGG, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
+        CW_TOGG, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,  _______,  _______,  _______,          _______,
         _______,           _______,  _______, _______, _______, _______,  _______, NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
         _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______),
 
